@@ -1,3 +1,15 @@
+To cancel an Axios request in React, you can use the cancelToken option. The cancelToken option takes a CancelToken object, which can be used to cancel the request.
+To create a CancelToken object, you can use the axios.CancelToken.source() method. This method returns a CancelTokenSource object, which has a cancel() method that can be used to cancel the request.
+To use the cancelToken option, you need to pass it to the Axios request configuration object. The cancelToken option must be passed to the request configuration object before the request is sent.
+
+In this example, the useEffect() hook is used to make the Axios request. The useEffect() hook will be called when the component mounts, and it will return a function that will be called when the component unmounts.
+The useEffect() hook first creates a CancelTokenSource object. The CancelTokenSource object is then set in state.
+The useEffect() hook then makes an Axios request with the cancelToken option. The cancelToken option is set to the token property of the CancelTokenSource object.
+The useEffect() hook then returns a function that will be called when the component unmounts. This function cancels the request by calling the cancel() method on the CancelTokenSource object.
+
+
+
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 
